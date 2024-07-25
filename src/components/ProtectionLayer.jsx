@@ -6,15 +6,16 @@ function ProtectionLayer({authentication = false,children}) {
 
     const [loder,setLoder] = React.useState(true);
     let authStatus = useSelector(state => state.userAuth.status);
+    
     const navigate = useNavigate()
     useEffect(()=>{
          if(authentication && authStatus !== authentication){
-            navigate("/login")
+            navigate("/")
         } else if(!authentication && authStatus !== authentication){
             navigate("/posts")
         }
         setLoder(false)
-    }, [authStatus, navigate, authentication])
+    }, [authStatus, navigate, authentication,loder])
 
   return loder ? <h1>Loading...</h1> : <>{children}</>
   

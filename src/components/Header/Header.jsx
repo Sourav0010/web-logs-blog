@@ -3,22 +3,27 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import {Profile, Registration} from '../index'
 import appwriteAuth from '../../appwrite/appwriteAuth'
-import { login } from '../../store/authSlice'
+import { login , logout} from '../../store/authSlice'
 import { useDispatch } from 'react-redux'
 
 function Header() {
 
-  const status = useSelector(state => state.userAuth.status)
+  let status = useSelector((state)=>state.userAuth.status);
   const dispatch = useDispatch();
   useEffect(()=>{
-    appwriteAuth.getUserAccount().then(data=>{
-      if(data)dispatch(login(data));
+    appwriteAuth.getUserAccount()
+    .then((userData) => {
+      if (userData) {
+        dispatch(login({userData}))
+      } else {
+        dispatch(logout())
+      }
     })
   },[])
   
  
   return (
-    <header className='items-center justify-between flex w-full sticky top-0 bg-white h-full px-10 py-5'>
+    <header className='items-center justify-between z-50 flex w-full sticky top-0 bg-white h-full px-10 py-5'>
       <Link to='/' className='text-black'>
       <h1 className='font-bold text-xl'>Web Logs</h1>
       </Link>

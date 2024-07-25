@@ -8,7 +8,10 @@ import Input from "./Input";
 import Registration from "./Header/Registration";
 import Profile from "./Header/Profile";
 import Articles from "./Articles";
-
+import PostCard from "./PostCard";
+import SignUp from "./SignUp";
+import ProtectionLayer from "./ProtectionLayer";
+import TextEditor from "./TextEditor";
 export { Header, 
     Footer, 
     Button, 
@@ -18,5 +21,9 @@ export { Header,
     Input,
     Registration,
     Profile,
-    Articles
+    Articles,
+    PostCard,
+    SignUp,
+    ProtectionLayer,
+    TextEditor
 };

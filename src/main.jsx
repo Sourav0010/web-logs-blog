@@ -6,11 +6,8 @@ import store from "./store/store.js"
 import { Provider } from 'react-redux'
 import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from 'react-router'
-import { Home } from './components/index'
-import LoginForm from './components/LoginForm.jsx'
-import SignUp from './components/SignUp.jsx'
-import {Articles} from './components/index'
-import ProtectionLayer from './components/ProtectionLayer.jsx'
+import { Home, LoginForm, SignUp, Articles, ProtectionLayer } from './components/index'
+import PostingForm from './components/PostingForm.jsx'
 
 const router = createBrowserRouter([
   {
@@ -36,6 +33,10 @@ const router = createBrowserRouter([
             <Articles/>
           </ProtectionLayer>
         )
+      },
+      {
+        path: 'test',
+        element: <PostingForm/>
       }
     ]
   }
