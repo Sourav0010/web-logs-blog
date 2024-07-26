@@ -33,9 +33,9 @@ class appwriteDatabase {
         }
     }
 
-    async getPost(postID){
+    getPost(postID){
         try {
-            return await this.database.getDocument(
+            return  this.database.getDocument(
                 conf.databaseId,
                 conf.collectionId,
                 postID
@@ -115,6 +115,8 @@ class appwriteDatabase {
             console.log("appwriteDatabase.getFilePreview",error)
         }
     }
+
+    
 }
 
 

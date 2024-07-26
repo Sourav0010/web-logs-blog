@@ -7,7 +7,6 @@ function Articles() {
   useEffect(()=>{
     appwriteDatabase.getPosts().then((data)=>{
       setPosts(data.documents)
-      console.log(appwriteDatabase.getFilePreview(data.documents[0].featureImage))
     })
   },[])  
   return (
@@ -31,6 +30,8 @@ function Articles() {
                 summery={post.summery}
                 author={post.author}
                 image={appwriteDatabase.getFilePreview(post.featureImage)}
+                created={post.$createdAt.slice(0,10).split('-').reverse().join('/')}
+                url={post.url}
                 />
         )
         })}

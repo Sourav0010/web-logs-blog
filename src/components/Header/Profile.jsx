@@ -28,7 +28,7 @@ function Profile() {
             Visit Posts
             </Button>
         </Link>
-        <Link to='/test'>
+        <Link to='/create'>
            <Button className='max-sm:hidden  border border-black  text-black px-4 py-2 ' >
             Create Post
             </Button>
