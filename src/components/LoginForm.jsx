@@ -21,6 +21,8 @@ function LoginForm() {
                 let session = await appwriteAuth.getUserAccount();
                 dispatch(login(session));
                 navigate('/articles');
+            }else{
+                setError("Invalid Email or Password");
             }
         } catch (error) {
            setError(error.message);

@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import {PostCard,Footer,Button} from './index'
+import {PostCard,Button} from './index'
 import appwriteDatabase from '../appwrite/appwriteDatabase.js'
 import { Link } from 'react-router-dom'
 function Articles() {

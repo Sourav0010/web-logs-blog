@@ -5,18 +5,17 @@ function Post({
     title='',
     author='',
     summery='',
-   
 }) {
   return (
     
 
-<div className="max-w-[15rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div className="max-w-[15rem] bg-white border border-gray-200 rounded-lg shadow ">
     <div className='mx-w-[12rem] max-h-24 overflow-hidden'>
     <img className="rounded-t-lg" src={image} alt="" />
     </div>
     <div className="p-5 pb-0">
-        <h5 className=" text-xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
-        <p className="mb-3 font-normal text-sm text-gray-700 dark:text-gray-400">{summery}</p>
+        <h5 className=" text-xl font-bold tracking-tight text-gray-900 ">{title}</h5>
+        <p className="mb-3 font-normal text-sm text-gray-700 ">{summery}</p>
 
     </div>
      <div className='w-full flex items-center justify-center mb-5'>
