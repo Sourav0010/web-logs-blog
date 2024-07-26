@@ -24,8 +24,9 @@ function Header() {
  
   return (
     <header className='items-center justify-between z-50 flex w-full sticky top-0 bg-white h-full px-10 py-5'>
-      <Link to='/' className='text-black'>
-      <h1 className='font-bold text-xl'>Web Logs</h1>
+
+      <Link to='/' className='text-black '>
+        <h1 className='font-bold text-xl max-md:text-base'>Web Logs</h1>
       </Link>
 
       {status ? (<Profile/>) : (<Registration/>)}
