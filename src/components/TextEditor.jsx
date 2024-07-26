@@ -6,7 +6,6 @@ import { Controller } from 'react-hook-form'
 function TextEditor({name , control}) {
   return (
     <div className='w-full'>
-      
       <Controller
         name={name || 'content'}
         control={control} 
