@@ -26,8 +26,8 @@ function SignUp() {
         }
     }
   return (
-    <div className='w-full px-80 mt-20 mb-20'>
-        <form onSubmit={handleSubmit(create)} className='w-full flex items-center justify-center flex-col bg-white p-20  border '>
+    <div className='w-full  px-80 max-md:px-5 mt-20  mb-20'>
+        <form onSubmit={handleSubmit(create)} className='w-full flex items-center justify-center flex-col bg-white p-20 max-sm:p-10  border '>
             <div className='text-black items-center w-full text-center'>
                 <h1 className='text-2xl font-bold'>SignUp for an Account</h1>
                 <p className='text-xs p-2 font-regular'>Already have an account? <Link to={'/login'} className='text-blue-600'>Login Now</Link></p>
@@ -38,7 +38,7 @@ function SignUp() {
                 type='text'
                 placeholder='Enter Your Name'
                 lebel='FullName'
-                className='p-2 border border-black w-full'
+                className='p-2 border border-black w-full max-sm:text-xs'
                 {...register('name',{
                     required:true,
                 })}
@@ -47,7 +47,7 @@ function SignUp() {
                 type='email'
                 placeholder='Enter Your Email'
                 lebel='Email Id'
-                className='p-2 border border-black w-full'
+                className='p-2 border border-black w-full max-sm:text-xs'
                 {...register('email',{
                     required:true,
                     validate:{
@@ -60,7 +60,7 @@ function SignUp() {
                 <Input
                 type='password'
                 placeholder='Password'
-                className='p-2 border border-black w-full'
+                className='p-2 border border-black w-full max-sm:text-xs'
                 lebel='Password'
                 {...register('password',{
                     required:true,
@@ -69,7 +69,7 @@ function SignUp() {
             </div>
             <Button 
             type='submit'
-            className="text-white bg-black px-6 py-2 border border-black mt-7"
+            className="text-white bg-black px-6 py-2 border border-black mt-7 max-sm:px-3 max-sm:text-xs max-sm:py-1"
             >Sign Up</Button>
         </form>
     </div>

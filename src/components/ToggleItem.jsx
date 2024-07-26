@@ -15,7 +15,7 @@ function ToggleItem({
         return (
             <div>
                 <h2 id="accordion-collapse-heading-3">
-                    <button type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3" onClick={()=>{
+                    <button type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100  gap-3" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3" onClick={()=>{
                     document.getElementById(`accordion-collapse-body-1 ${id}`).classList.toggle('hidden')
                     document.getElementById(sk).classList.toggle('rotate-180')
                 }}>
@@ -26,8 +26,8 @@ function ToggleItem({
                     </button>
                 </h2>
                 <div id={`accordion-collapse-body-1 ${id}`} className="hidden" aria-labelledby="accordion-collapse-heading-1">
-                    <div className="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                         <p className="mb-2 text-gray-500 dark:text-gray-400">{answer}</p>
+                    <div className="p-5 border border-t-0 border-gray-200 ">
+                         <p className="mb-2 text-gray-500 ">{answer}</p>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@ function ToggleItem({
     <div className='w-full '>
         {index == 0 ?  <div>
             <h2 id="accordion-collapse-heading-1">
-                <button type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1" onClick={()=>{
+                <button type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200  hover:bg-gray-100  gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1" onClick={()=>{
                     document.getElementById(`accordion-collapse-body-1 ${id}`).classList.toggle('hidden')
                     document.getElementById(sk).classList.toggle('rotate-180')
                 }}>
@@ -49,15 +49,15 @@ function ToggleItem({
                 </button>
             </h2>
             <div id={`accordion-collapse-body-1 ${id}`} className="hidden" aria-labelledby="accordion-collapse-heading-1">
-                <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                <p className="mb-2 text-gray-500 dark:text-gray-400">{answer}</p>
+                <div className="p-5 border border-b-0 border-gray-200 ">
+                <p className="mb-2 text-gray-500 ">{answer}</p>
                 </div>
             </div>
         </div> :
         
         <div>
             <h2 id="accordion-collapse-heading-1">
-                <button type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2"  onClick={()=>{
+                <button type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 hover:bg-gray-100  gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2"  onClick={()=>{
                     document.getElementById(`accordion-collapse-body-2 ${id}`).classList.toggle('hidden')
                     document.getElementById(sk).classList.toggle('rotate-180')
                 }}>
@@ -68,8 +68,8 @@ function ToggleItem({
                 </button>
             </h2>
             <div id={`accordion-collapse-body-2 ${id}`} className="hidden" aria-labelledby="accordion-collapse-heading-2">
-                <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-                <p className="mb-2 text-gray-500 dark:text-gray-400">{answer}</p>
+                <div className="p-5 border border-b-0 border-gray-200 ">
+                <p className="mb-2 text-gray-500 ">{answer}</p>
                 </div>
             </div>
         </div>

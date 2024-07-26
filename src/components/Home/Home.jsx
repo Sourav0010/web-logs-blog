@@ -1,7 +1,8 @@
 import React from 'react'
 import back from "../../assets/blue-background.png"
-import {Button,ToggleItem} from "../index"
+import {Button,ToggleItem,Footer} from "../index"
 import help from "../../assets/help.svg"
+import { Link } from 'react-router-dom';
 
 
 function Home() {
@@ -45,7 +46,12 @@ function Home() {
             <div className='mt-10 mb-32'>
                 <h1 className=' text-center max-sm:text-xs text-2xl font-bold'>Build Learn And Grow <br></br> <span>No Matter Where Are You Come From</span></h1>
                 <div className='w-full flex flex-row items-center justify-center gap-4 mt-4'>
-                    <Button children="Get Started" className='text-white bg-black px-6 py-2 border max-sm:text-xs max-sm:px-3 max-sm:py-1 border-black'/>
+                    <Link to={'/articles'}>
+
+                        <Button children="Get Started" className='text-white bg-black px-6 py-2 border max-sm:text-xs max-sm:px-3 max-sm:py-1 border-black'/>
+                    </Link>
+                    
+
                     <Button children="Watch Video" className='border border-black px-6 font-medium py-2 max-sm:text-xs max-sm:px-3 max-sm:py-1'/>
                 </div>
             <img src={back} alt="Wave" />
@@ -77,6 +83,8 @@ function Home() {
                 </div>
             </div>
         </div>
+
+      
     </>
   )
 }

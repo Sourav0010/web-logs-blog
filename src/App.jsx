@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux'
 function App() {
   
   return (
-    <>
+    <div className='h-full min-h-svh  flex  flex-col'>
       <Header/>
       <Outlet/>
-      <Footer/>
-    </>
+      <Footer className='mt-auto'/>
+    </div>
   )
 }
 
