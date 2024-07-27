@@ -27,5 +27,5 @@ export { Header,
     SignUp,
     ProtectionLayer,
     TextEditor,
-    Loading
+    Loading,
 };
