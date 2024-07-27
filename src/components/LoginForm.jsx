@@ -4,7 +4,7 @@ import appwriteAuth from "../appwrite/appwriteAuth"
 import { login } from '../store/authSlice'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import {Input,Button} from "../components/index"
+import {Input,Button,Loading} from "../components/index"
 
 function LoginForm() {
     let [error,setError] = React.useState("");
@@ -12,9 +12,11 @@ function LoginForm() {
     const navigate = useNavigate();
     
     const {register,handleSubmit} = useForm();
+    const [loading,setLoading] = React.useState(false);
 
     const onSubmit = async (data)=>{
         setError("");
+        setLoading(true);
         try {
             let response = await appwriteAuth.login(data);
             if(response){
@@ -22,11 +24,14 @@ function LoginForm() {
                 dispatch(login(session));
                 navigate('/articles');
             }else{
+                setLoading(false);
                 setError("Invalid Email or Password");
             }
         } catch (error) {
+            setLoading(false);
            setError(error.message);
         }
+        setLoading(false);
     }
 
   return (
@@ -65,7 +70,12 @@ function LoginForm() {
             <Button 
             type='submit'
             className="text-white bg-black px-6 py-2 border border-black mt-7 max-sm:px-3 max-sm:py-1"
-            >Login</Button>
+            disabled={loading}
+            >
+            
+            {loading ? <Loading/> : "Login"}
+            
+            </Button>
         </form>
     </div>
   )

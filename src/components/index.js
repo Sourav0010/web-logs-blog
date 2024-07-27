@@ -12,6 +12,7 @@ import PostCard from "./PostCard";
 import SignUp from "./SignUp";
 import ProtectionLayer from "./ProtectionLayer";
 import TextEditor from "./TextEditor";
+import Loading from "./Loading";
 export { Header, 
     Footer, 
     Button, 
@@ -25,5 +26,6 @@ export { Header,
     PostCard,
     SignUp,
     ProtectionLayer,
-    TextEditor
+    TextEditor,
+    Loading
 };

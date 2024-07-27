@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input,TextEditor, Button } from './index'
+import { Input,TextEditor, Button, Loading } from './index'
 import { useForm } from 'react-hook-form'
 import appwritedatabase from '../appwrite/appwriteDatabase';
 import { useSelector } from 'react-redux';
@@ -9,17 +9,27 @@ function PostingForm() {
   const {register, handleSubmit,control} = useForm();
   const user = useSelector(state => state.userAuth?.userData?.userData);
   const navigate = useNavigate();
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState('');
+
   const create = async (data)=>{
-    const file  = await appwritedatabase.uploadImage(data.thumbnil[0]);
-    await appwritedatabase.createPost({
-      title: data.title,
-      content: data.content,
-      summery: data.summery,
-      featureImage: file.$id,
-      userID: user.$id,
-      author: user?.name
-    })
-    navigate('/');
+    setError('');
+    try{
+      setLoading(true);
+      const file  = await appwritedatabase.uploadImage(data.thumbnil[0]);
+      await appwritedatabase.createPost({
+        title: data.title,
+        content: data.content,
+        summery: data.summery,
+        featureImage: file.$id,
+        userID: user.$id,
+        author: user?.name
+      })
+      navigate(`/${user.$id}`);
+    }catch(e){
+      setError(e.message);
+      setLoading(false);
+    }
   }
 
   return (
@@ -56,8 +66,14 @@ function PostingForm() {
               name='content'
               control={control}
             />
-            <Button  className='bg-black mt-3 w-fit mx-auto max-sm:text-xs  text-white px-4 py-2'>
-              Submit
+            {error && 
+              <div className='text-center mt-2'>
+                <p className='text-red-500 text-xs'>{error}</p>
+              </div>
+            
+            }
+            <Button  className='bg-black mt-3 w-fit mx-auto max-sm:text-xs  text-white px-4 py-2' disabled={loading}>
+              {loading ? <Loading/> : 'Post'}
             </Button>
           </form>
         </div>

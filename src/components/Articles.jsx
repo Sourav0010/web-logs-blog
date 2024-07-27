@@ -1,11 +1,14 @@
 import React,{useEffect} from 'react'
-import {PostCard,Button} from './index'
+import {PostCard,Button, Loading} from './index'
 import appwriteDatabase from '../appwrite/appwriteDatabase.js'
 import { Link } from 'react-router-dom'
 function Articles() {
-  let [posts, setPosts] = React.useState([])
+  let [posts, setPosts] = React.useState([]);
+  let [loading, setLoading] = React.useState(false);
   useEffect(()=>{
+    setLoading(true);
     appwriteDatabase.getPosts().then((data)=>{
+      setLoading(false);
       setPosts(data.documents)
     })
   },[])  
@@ -21,7 +24,11 @@ function Articles() {
       </div>
 
       <div className=' flex items-center gap-2 my-20 flex-wrap justify-center flex-row'>
-        {posts.length ==0 ? (<div className='min-h-svh'>
+        {loading ? (
+            
+          <Loading/>
+          
+          ) :posts.length ==0 ? (<div className='min-h-svh'>
         <h1 className='text-4xl text-center mt-20'>No Posts</h1>
         </div>) :posts.map((post) => {
         return (

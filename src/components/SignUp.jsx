@@ -2,26 +2,29 @@ import React from 'react'
 import appwriteAuth from '../appwrite/appwriteAuth';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { Input, Button } from '../components/index';
+import { Input, Button, Loading } from '../components/index';
 import { useDispatch } from 'react-redux';
 import { login } from '../store/authSlice';
 function SignUp() {
     const [error,setError] = React.useState('');
+    const [loading,setLoading] = React.useState(false);
     const {register,handleSubmit}  = useForm();
     let dispatch = useDispatch();
     let navigate = useNavigate();
     const create = async (data)=>{
         setError('');
+        setLoading(true);
         try {
             await appwriteAuth.logout();
             let userData = await appwriteAuth.createAccount(data);
             if(userData){
                 let currUser = await appwriteAuth.getUserAccount();
                 if(currUser) dispatch(login(currUser));
+                setLoading(false);
                 navigate('/');
-                console.log("user loggedin")
             }
         } catch (error) {
+            setLoading(false);
             setError(error.message);
         }
     }
@@ -69,8 +72,11 @@ function SignUp() {
             </div>
             <Button 
             type='submit'
+            disabled={loading}
             className="text-white bg-black px-6 py-2 border border-black mt-7 max-sm:px-3 max-sm:text-xs max-sm:py-1"
-            >Sign Up</Button>
+            >
+                {loading ? <Loading/> : 'SignUp'}
+            </Button>
         </form>
     </div>
   )

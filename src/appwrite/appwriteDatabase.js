@@ -96,7 +96,7 @@ class appwriteDatabase {
                 ID.unique(),
                 file);
         } catch (error) {
-            console.log("appwriteDatabase.uploadImage",error)
+            throw new Error(error.message);
         }
     }
 

@@ -46,6 +46,12 @@ const router = createBrowserRouter([
           <PostFullView/>
         </ProtectionLayer>),
         
+      },
+      {
+        path: 'profile/:id',
+        element: (
+          <p>Profile</p>
+        )
       }
     ]
   }
