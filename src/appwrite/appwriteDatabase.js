@@ -67,7 +67,6 @@ class appwriteDatabase {
                 {
                     title,
                     content,
-                    author,
                     summery,
                     featureImage,
                     userID

@@ -24,48 +24,34 @@ function Profile() {
 
   return (
     <div className='flex items-center flex-row gap-4'>
-        {/* <Link to={'/articles'}>
-            <Button className='max-sm:hidden  text-black bg-white px-4 py-2 border border-black '>
-            Visit Posts
-            </Button>
-        </Link>
-        <Link to='/create'>
-           <Button className='max-sm:hidden  border border-black  text-black px-4 py-2 ' >
-            Create Post
-            </Button>
-        </Link>
-       
-        <ProfileInfo/>
-        <Button onClick={logoutHandler} type="button" className="bg-red-600 text-white px-4 py-2 border border-red-600 max-sm:text-xs ">Logout</Button> */}
 
-
-        <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button type="button" onClick={()=>{
                 document.getElementById('user-dropdown').classList.toggle('hidden')
-            }} class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                <span class="sr-only">Open user menu</span>
-                <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+            }} className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                <span className="sr-only">Open user menu</span>
+                <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
             
-                <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="https://avatar.iran.liara.run/public/boy" alt="Bordered avatar"/>
+                <img className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="https://avatar.iran.liara.run/public/boy" alt="Bordered avatar"/>
 
         </div>
             </button>
             
-            <div class="z-50 hidden absolute top-12 right-5 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
-                <div class="px-4 py-3">
-                <span class="block text-sm text-gray-900 dark:text-white">{user?.name}</span>
-                <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{user?.email}</span>
+            <div className="z-50 hidden absolute top-12 right-5 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+                <div className="px-4 py-3">
+                <span className="block text-sm text-gray-900 dark:text-white">{user?.name}</span>
+                <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">{user?.email}</span>
                 </div>
-                <ul class="py-2" aria-labelledby="user-menu-button">
+                <ul className="py-2" aria-labelledby="user-menu-button">
                
+                {user?.labels[0] === 'admin' && <li>
+                    <Link to='/create' className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Create Post</Link>
+                </li>}
                 <li>
-                    <Link to='/create' class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Create Post</Link>
+                    <Link to='/articles' className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">All Articles</Link>
                 </li>
                 <li>
-                    <Link to='/articles' class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">All Articles</Link>
-                </li>
-                <li>
-                    <Link onClick={logoutHandler} type='button'  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Logout</Link>
+                    <Link onClick={logoutHandler} type='button'  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Logout</Link>
                 </li>
                 </ul>
             </div>

@@ -25,7 +25,7 @@ function PostingForm() {
         userID: user.$id,
         author: user?.name
       })
-      navigate(`/${user.$id}`);
+      navigate(`/articles`);
     }catch(e){
       setError(e.message);
       setLoading(false);

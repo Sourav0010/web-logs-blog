@@ -3,7 +3,7 @@ import parse from 'html-react-parser'
 function PostBody({post = ''}) {
   return (
     <>
-    {...parse(post || '')}
+    {parse(post || '')}
     </>
   )
 }

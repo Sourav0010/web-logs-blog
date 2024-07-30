@@ -18,9 +18,9 @@ class AppwriteAuth {
         }
     }
 
-    async createAccount({email,password,name}){
+    async createAccount({email,password,name,premium}){
         try {
-            let session =  await this.account.create(ID.unique(),email,password,name);
+            let session =  await this.account.create(ID.unique(),email,password,name,premium);
             if(session){
                 return this.login({email,password});
             }else{

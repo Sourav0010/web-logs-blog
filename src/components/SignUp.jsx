@@ -16,7 +16,7 @@ function SignUp() {
         setLoading(true);
         try {
             await appwriteAuth.logout();
-            let userData = await appwriteAuth.createAccount(data);
+            let userData = await appwriteAuth.createAccount({...data,premium:true});
             if(userData){
                 let currUser = await appwriteAuth.getUserAccount();
                 if(currUser) dispatch(login(currUser));
