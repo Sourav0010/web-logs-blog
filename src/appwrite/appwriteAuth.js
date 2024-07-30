@@ -48,6 +48,38 @@ class AppwriteAuth {
             console.log("Appwrite :: appwriteAuth ::getUserAccount :: ",error);
         }
     }
+
+    async updateEmail({email,password}){
+        try{
+            return await this.account.updateEmail(email,password);
+        }catch(error){
+            console.log("Appwrite :: appwriteAuth ::updateEmail :: ",error);
+        }
+    }
+
+    async updateName({name}){
+        try{
+            return await this.account.updateName(name);
+        }catch(error){
+            console.log("Appwrite :: appwriteAuth ::updateName :: ",error);
+        }
+    }
+
+    async updatePassword({password,newPassword}){
+        try{
+            return await this.account.updatePassword(password,newPassword);
+        }catch(error){
+            console.log("Appwrite :: appwriteAuth ::updatePassword :: ",error);
+        }
+    }
+
+    async updatePhone({phone,password}){
+        try{
+            return await this.account.updatePhone(phone,password);
+        }catch(error){
+            console.log("Appwrite :: appwriteAuth ::updatePhone :: ",error);
+        }
+    }
 }
 
 const appwriteAuth = new AppwriteAuth();

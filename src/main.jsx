@@ -9,6 +9,7 @@ import { RouterProvider } from 'react-router'
 import { Home, LoginForm, SignUp, Articles, ProtectionLayer } from './components/index'
 import PostingForm from './components/PostingForm.jsx'
 import PostFullView from './components/PostFullView.jsx'
+import User from './components/User.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -45,6 +46,14 @@ const router = createBrowserRouter([
           <PostFullView/>
         </ProtectionLayer>),
         
+      },
+      {
+        path: 'profile',
+        element: (
+          <ProtectionLayer authentication={true}>
+            <User/>
+          </ProtectionLayer>
+        ),
       }
     ]
   }

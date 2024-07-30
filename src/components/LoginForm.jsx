@@ -36,10 +36,10 @@ function LoginForm() {
 
   return (
     <div className='w-full px-80 mt-20 max-md:px-5  mb-20'>
-        <form onSubmit={handleSubmit(onSubmit)} className='w-full flex items-center justify-center flex-col bg-white p-20  border '>
+        <form onSubmit={handleSubmit(onSubmit)} className='w-full flex items-center justify-center flex-col bg-white p-20  border max-sm:p-10'>
             <div className='text-black items-center w-full text-center'>
-                <h1 className='text-2xl font-bold max-sm:text-xl'>Login to your Account</h1>
-                <p className='text-xs max-sm:text-[0.7rem] p-2 font-regular'>Don't have an account? <Link to={'/signup'} className='text-blue-600'>Create one</Link></p>
+                <h1 className='text-2xl font-bold'>Login to your Account</h1>
+                <p className='text-xs p-2 font-regular'>Don't have an account? <Link to={'/signup'} className='text-blue-600'>Create one</Link></p>
             </div>
             {error && <div className='text-red-600 text-xs pt-5 text-center'>{error}</div>}
             <div className='flex items-center flex-col justify-center gap-4 mt-10'>
