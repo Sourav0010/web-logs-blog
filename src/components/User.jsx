@@ -39,7 +39,7 @@ function User() {
       {...register('name',{
         
       })}/>
-      <Input type='text' lebel='Email' className="bg-white border p-2  max-sm:p-1 font-normal" placeholder='Name' {...register('email')}/>
+      <Input type='text' lebel='Email' className="bg-white border p-2  font-normal" placeholder='Name' {...register('email')}/>
       <Input type='text' lebel='Phone' className="bg-white border p-2 font-normal" {...register('phone')} placeholder='Phone No.' />
       <Input type='password' lebel='Password' className="bg-white border p-2 font-normal" {...register('password')}  placeholder='Password' />
       <Button type='submit' className='bg-black hover:cursor-pointer text-white p-2 font-normal rounded-md' >Update</Button>
