@@ -1,4 +1,4 @@
-import { Client, Databases, ID, Storage } from "appwrite";
+import { Client, Databases, ID, Query, Storage } from "appwrite";
 import {conf} from '../config/conf'
 
 class appwriteDatabase {
@@ -76,11 +76,15 @@ class appwriteDatabase {
             console.log("appwriteDatabase.updatePost",error)
         }
     }
-    async getPosts(){
+    async getPosts(page = 0,limit = 10){
         try {
             return await this.database.listDocuments(
                 conf.databaseId,
-                conf.collectionId
+                conf.collectionId,
+                [
+                    Query.limit(limit),
+                    Query.offset(page)
+                ]
             )
         } catch (error) {
             console.log("appwriteDatabase.getPosts",error)

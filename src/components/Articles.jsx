@@ -5,16 +5,19 @@ import { Link } from 'react-router-dom'
 function Articles() {
   let [posts, setPosts] = React.useState([]);
   let [loading, setLoading] = React.useState(false);
+  let [page, setPage] = React.useState(0);
+
   useEffect(()=>{
     setLoading(true);
-    appwriteDatabase.getPosts().then((data)=>{
+    appwriteDatabase.getPosts(page,10).then((data)=>{
       setLoading(false);
       setPosts(data.documents)
     })
-  },[])  
+  },[page])
+  
+  
   return (
     <>
-
       <div className='flex flex-row items-center justify-end px-10'>
         <Link to='/test'>
            <Button className='hidden max-sm:block  max-sm:text-xs border border-black  text-black px-4 py-2 ' >
@@ -28,7 +31,7 @@ function Articles() {
             
           <Loading/>
           
-          ) :posts.length ==0 ? (<div className='min-h-svh'>
+          ) :posts.length ==0 ? (<div className=''>
         <h1 className='text-4xl text-center mt-20'>No Posts</h1>
         </div>) :posts.map((post) => {
         return (
@@ -43,7 +46,17 @@ function Articles() {
         )
         })}
       </div>
-     
+
+      <div className={`flex justify-center gap-2 my-4`} >
+        <Button onClick={()=>{setPage( page => page-1)}} disabled={page==0} 
+        className={` text-white bg-black rounded-md max-sm:text-xs max-sm:px-3 max-sm:py-2 px-4 py-2  ${page==0 && 'bg-gray-700'}`} >
+          Prev Post
+        </Button>
+        <Button onClick={()=>{setPage(page => page+1)}} disabled={!posts.length} 
+        className={` text-white bg-black rounded-md max-sm:text-xs max-sm:px-3 max-sm:py-2 px-4 py-2 ${!posts.length && 'bg-gray-700'}`} >
+          Next Post
+        </Button>
+      </div>
     </>
     
   )
