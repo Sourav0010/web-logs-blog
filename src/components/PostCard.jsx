@@ -17,7 +17,6 @@ function Post({
     const [liked , setLiked] = useState(false);
 
     useEffect(()=>{
-        setTotalLikes(likedBy.length)
         if(likedBy.includes(user?.$id)){
             setLiked(true)
         }else{
