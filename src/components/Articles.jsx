@@ -45,6 +45,7 @@ function Articles() {
                 image={appwriteDatabase.getFilePreview(post.featureImage)}
                 created={post.$createdAt.slice(0,10).split('-').reverse().join('/')}
                 url={post.url}
+                likedBy={post.likedBy}
                 />
         )
         })}

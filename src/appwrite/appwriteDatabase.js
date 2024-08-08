@@ -119,6 +119,21 @@ class appwriteDatabase {
         }
     }
 
+    async updateLike(postID,likedBy){
+        try {
+            await this.database.updateDocument(
+                conf.databaseId,
+                conf.collectionId,
+                postID,
+                {
+                    likedBy
+                }
+            )
+        } catch (error) {
+            
+        }
+    }
+
     
 }
 
