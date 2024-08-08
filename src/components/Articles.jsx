@@ -29,7 +29,7 @@ function Articles() {
         </Link>
       </div>}
 
-      <div className=' flex items-center gap-2 my-20 flex-wrap justify-center flex-row'>
+      <div className=' flex items-center gap-4 my-20 flex-wrap justify-center flex-row'>
         {loading ? (
             
           <Loading/>
