@@ -16,6 +16,7 @@ function Post({
 
     const user = useSelector(state => state.userAuth.userData.userData)
     const [liked , setLiked] = useState(false);
+    const [count , setCount] = useState(likedBy.length);
 
     useEffect(()=>{
         if(likedBy.includes(user?.$id)){
@@ -29,11 +30,11 @@ function Post({
          if(!liked){
                 appwritedatabase.updateLike(url,[...likedBy,user.$id])
                 setLiked(l => !l);
-               
+               setCount(count => count+1);
             } else{
                 appwritedatabase.updateLike(url,likedBy.filter(id => id !== user.$id))
                 setLiked(l => !l);
-               
+               setCount(count => count-1);
             }
     },[liked])
   return (
@@ -69,7 +70,7 @@ function Post({
                 <Button className='bg-white text-black border border-gray-200 px-2 py-1 rounded-full text-xs' onClick={handleLike}>
                 <i className={liked ?  `fa-solid fa-heart` : `fa-regular fa-heart`}></i>
                     {"  "}
-                    {likedBy.length}
+                    {count}
                 </Button>
             </div>
             <div className='flex items-center gap-2'>
