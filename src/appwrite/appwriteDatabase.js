@@ -134,6 +134,33 @@ class appwriteDatabase {
         }
     }
 
+    async addComment(postID,comment){
+        try {
+            await this.database.updateDocument(
+                conf.databaseId,
+                conf.collectionId,
+                postID,
+                {
+                    comment
+                }
+            )
+        } catch (error) {
+            console.log("appwriteDatabase.addComment",error)
+        }
+    }
+
+    async getComment(postID){
+        try {
+            return await this.database.getDocument(
+                conf.databaseId,
+                conf.collectionId,
+                postID
+            )
+        } catch (error) {
+            console.log("appwriteDatabase.getComment",error)
+        }
+    }
+
     
 }
 

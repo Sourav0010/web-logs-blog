@@ -15,6 +15,7 @@ function Articles() {
     appwriteDatabase.getPosts(page,10).then((data)=>{
       setLoading(false);
       setPosts(data.documents)
+      console.log(posts)
     })
   },[page])
   
@@ -46,6 +47,7 @@ function Articles() {
                 created={post.$createdAt.slice(0,10).split('-').reverse().join('/')}
                 url={post.url}
                 likedBy={post.likedBy}
+                comments={post.comment}
                 />
         )
         })}
