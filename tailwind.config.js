@@ -16,6 +16,5 @@ export default {
       'thin': ['Poppins-Thin', 'sans-serif'],
     }
   },
-  
-  plugins: [],
+  plugins: []
 }

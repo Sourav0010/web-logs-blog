@@ -15,7 +15,6 @@ function Articles() {
     appwriteDatabase.getPosts(page,10).then((data)=>{
       setLoading(false);
       setPosts(data.documents)
-      console.log(posts)
     })
   },[page])
   
@@ -23,7 +22,7 @@ function Articles() {
   return (
     <>
      {user?.labels[0] === 'admin' &&  <div className='flex flex-row items-center justify-end px-10'>
-        <Link to='/test'>
+        <Link to='/create'>
            <Button className='hidden max-sm:block  max-sm:text-xs border border-black  text-black px-4 py-2 ' >
             <i class="fa-solid fa-plus"></i> Create
             </Button>
