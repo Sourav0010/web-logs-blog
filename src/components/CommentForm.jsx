@@ -13,13 +13,12 @@ function CommentForm({postId}) {
     let data = useSelector(state => state.userAuth.userData.userData);
     let [loading, setLoading] = useState(false);
   
-
     const doSubmit = async (data)=>{
         setLoading(true);
         let current = {
             comment: data.comment,
             createdAt: new Date().toLocaleString(),
-            user:user
+            user: user
         }
        await appwritedatabase.addComment(postId,[...comment,JSON.stringify(current)]);
        setComment([...comment,JSON.stringify(current)]);
@@ -28,10 +27,10 @@ function CommentForm({postId}) {
 
     useEffect(()=>{
         appwritedatabase.getComment(postId).then((data)=>{
-            setComment(data.comment)
+            if(data.comment.join('').trim().length != 0)setComment(data.comment)
+                else setComment([]);
         });
-        setUser(data);
-        
+        setUser(data); 
     },[comment.length])
 
   return (

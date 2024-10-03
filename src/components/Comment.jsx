@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 
 function Comment({comment}) {
   let [comments, setComments] = useState(JSON.parse(comment));
-  console.log(comments)
   return (
   <div className='flex gap-4 items-center '>
     
