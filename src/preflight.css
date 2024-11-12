@@ -1,4 +1,4 @@
 .reset-tw,
 .reset-tw * {
-    all: revert !important;
+   all: revert !important;
 }
