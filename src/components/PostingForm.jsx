@@ -33,7 +33,22 @@ function PostingForm({ post }) {
         try {
             setLoading(true)
             if (post) {
-                console.log(post)
+                const file = await appwritedatabase.uploadImage(
+                    data.thumbnil[0]
+                )
+
+                if (file) {
+                    await appwritedatabase.deleteImage(post?.featureImage)
+                }
+
+                console.log('file', file)
+
+                const dbPost = await appwritedatabase.editPost(post.$id, {
+                    ...data,
+                    featureImage: file ? file.$id : post.featureImage,
+                })
+
+                console.log('dbPost', dbPost)
             } else {
                 const file = await appwritedatabase.uploadImage(
                     data.thumbnil[0]
@@ -50,6 +65,7 @@ function PostingForm({ post }) {
             navigate(`/articles`)
         } catch (e) {
             setError(e.message)
+        } finally {
             setLoading(false)
         }
     }
@@ -102,7 +118,7 @@ function PostingForm({ post }) {
                     <TextEditor
                         name="content"
                         control={control}
-                        defaultValue={getValues('content')}
+                        defaultValue={post?.content || ''}
                     />
                     {error && (
                         <div className="text-center mt-2">

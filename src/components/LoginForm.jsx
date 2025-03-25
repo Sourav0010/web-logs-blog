@@ -19,6 +19,7 @@ function LoginForm() {
       setLoading(true);
       try {
          let response = await appwriteAuth.login(data);
+         
          if (response) {
             let session = await appwriteAuth.getUserAccount();
             dispatch(login(session));

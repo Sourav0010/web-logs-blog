@@ -41,7 +41,6 @@ class appwriteDatabase {
 
     getPost(postID) {
         try {
-            console.log('postID', postID)
             return this.database.getDocument(
                 conf.databaseId,
                 conf.collectionId,

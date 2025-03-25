@@ -45,7 +45,6 @@ function Home() {
         appwriteAuth
             .getUserAccount()
             .then((data) => {
-                console.log(data)
                 setUser(data)
             })
             .catch((error) => {

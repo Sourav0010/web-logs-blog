@@ -22,13 +22,7 @@ function PostFullView() {
         appwritedatabase.getPost(data.id).then((data) => {
             setLoading(false)
             setPost(data)
-            console.log(data)
             setIsAuthor(userData.userData.$id == data.userID)
-            console.log(
-                userData.userData.$id == post?.userID,
-                userData.userData.$id,
-                data?.userID
-            )
             setComment(data.comment)
         })
     }, [])
