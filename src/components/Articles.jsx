@@ -24,7 +24,7 @@ function Articles() {
             <div className='flex flex-row items-center justify-end px-10'>
                <Link to='/create'>
                   <Button className='hidden max-sm:block  max-sm:text-xs border border-black  text-black px-4 py-2 '>
-                     <i class='fa-solid fa-plus'></i> Create
+                     <i className='fa-solid fa-plus'></i> Create
                   </Button>
                </Link>
             </div>
